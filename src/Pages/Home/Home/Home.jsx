@@ -1,20 +1,12 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is home</h2>
+            <Banner></Banner>
         </div>
     );
 };
 
 export default Home;
-
-
-// echo "# b712-summer-camp-client-side-shawon012" >> README.md
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-shawon012.git
-// git push -u origin main
