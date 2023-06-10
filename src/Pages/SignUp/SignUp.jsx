@@ -27,6 +27,16 @@ const SignUp = () => {
             return;
         }
 
+        if (!/[A-Z]/.test(password)) {
+            setError('Password must contain at least one capital letter.');
+            return;
+        }
+    
+        if (!/[!@#$%^&*]/.test(password)) {
+            setError('Password must contain at least one special character.');
+            return;
+        }
+
         createUser(email, password, photoURL, displayName);
 
     }

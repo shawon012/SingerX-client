@@ -2,9 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
     const [error, setError] = useState(null);
+    const [passwordVisible, setPasswordVisible] = useState(false); 
     const { signIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -32,6 +34,11 @@ const Login = () => {
             .catch(error => setError(error));
 
     }
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
+
     return (
         <div className="hero pb-20 pt-5 bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse mt-5">
@@ -48,7 +55,26 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name='password' className="input input-bordered" />
+                            {/* <input type="password" placeholder="password" name='password' className="input input-bordered" /> */}
+                            <div className="relative">
+                                <input
+                                    type={passwordVisible ? 'password' : 'text'}
+                                    placeholder="password"
+                                    name='password'
+                                    className="input input-bordered pr-10 w-full"
+                                />
+                                {passwordVisible ? (
+                                    <AiOutlineEyeInvisible
+                                        className="absolute top-1/2 right-2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                        onClick={togglePasswordVisibility}
+                                    />
+                                ) : (
+                                    <AiOutlineEye
+                                        className="absolute top-1/2 right-2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                                        onClick={togglePasswordVisibility}
+                                    />
+                                )}
+                            </div>
                         </div>
 
                         <div>
