@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [error, setError] = useState(null);
@@ -57,6 +58,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">LogIn</button>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </form>
                 <div className="text-center lg:text-left">
@@ -64,6 +66,7 @@ const Login = () => {
                     <p className="py-6">Unlock the magic of music by logging into our Music School. Join us in discovering melody, rhythm, and endless possibilities. Embrace your inner artist, learn from dedicated instructors, and access a wealth of resources. Take the first step towards your musical dreams. Login now and let the music inspire you!</p>
                 </div>
             </div>
+            
         </div>
     );
 };
