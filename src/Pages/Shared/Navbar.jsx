@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import guitar from '../../../public/guitar.png'
+import { AuthContext } from '../../providers/AuthProvider';
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -30,15 +32,20 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div>
-                        <div>
-                            <img src='' alt="" />
-                        </div>
-                        <div>
-                            <button>Logout</button>
-                        </div>
-                    </div>
-                    <a className="btn">Login</a>
+                    {
+                        user ?
+                            (<div>
+                                <div>
+                                    <img src='' alt="" />
+                                </div>
+                                <div>
+                                    <a className="btn">LogOut</a>
+                                </div>
+                            </div>) :
+
+                            <a className="btn">Login</a>
+                    }
+
                 </div>
             </div>
         </div>

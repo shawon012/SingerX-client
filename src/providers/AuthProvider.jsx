@@ -1,20 +1,34 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { app } from "../firebase/firebase.config";
+import app from "../firebase/firebase.config";
 
-export const AuthContext = createContext(null);
 
+export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
     const googleProvider = new GoogleAuthProvider();
 
-    const createUser = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
+
+
+    const createUser = (email, password, photoURL, displayName) => {
+        setLoading(true)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                updateProfile(user, { displayName: displayName, photoURL: photoURL })
+                    .then(() => {
+                        // Profile data updated successfully
+                    })
+                    .catch((error) => {
+                        console.log(error.message);
+                    });
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     }
 
     const signIn = (email, password) => {
@@ -22,7 +36,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const googleSignIn = () =>{
+    const googleSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
@@ -32,16 +46,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    const updateUserProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photo
-        });
-    }
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log('current user', currentUser); 
+            console.log('current user', currentUser);
+            setLoading(false);
         });
         return () => {
             return unsubscribe();
@@ -54,8 +63,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         googleSignIn,
-        logOut,
-        updateUserProfile
+        logOut
     }
 
     return (
