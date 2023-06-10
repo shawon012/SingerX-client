@@ -53,4 +53,50 @@
         price: '$65',
         enrolledStudents: 2
     }
-]
+],
+
+
+
+
+    {
+        Image: 'https://plus.unsplash.com/premium_photo-1682293779538-dc07a400e604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjB0ZWFjaGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+        Name: 'John Doe',
+        Email: 'johndoe@example.com',
+        NumberOfClasses: 5,
+        ClassesTaken: 'Piano Basics'
+    },
+    {
+        Image: 'https://images.unsplash.com/photo-1529518969858-8baa65152fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bXVzaWMlMjB0ZWFjaGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+        Name: 'Jane Smith',
+        Email: 'janesmith@example.com',
+        NumberOfClasses: 3,
+        ClassesTaken: 'Guitar Basics'
+    },
+    {
+        Image: 'https://plus.unsplash.com/premium_photo-1682595142263-80143c15f68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        Name: 'David Johnson',
+        Email: 'davidjohnson@example.com',
+        NumberOfClasses: 4,
+        ClassesTaken: 'Singing Techniques'
+    },
+    {
+        Image: 'https://images.unsplash.com/photo-1605722243979-fe0be8158232?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bXVzaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        Name: 'Sarah Anderson',
+        Email: 'sarahanderson@example.com',
+        NumberOfClasses: 2,
+        ClassesTaken: 'Violin Intermediate'
+    },
+    {
+        Image: 'https://images.unsplash.com/photo-1471565661762-b9dfae862dbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        Name: 'Michael Thompson',
+        Email: 'michaelthompson@example.com',
+        NumberOfClasses: 6,
+        ClassesTaken: 'Drumming Advanced'
+    },
+    {
+        Image: 'https://images.unsplash.com/photo-1595971294624-80bcf0d7eb24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bXVzaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        Name: 'Emily Wilson',
+        Email: 'emilywilson@example.com',
+        NumberOfClasses: 1,
+        ClassesTaken: 'Songwriting Masterclass'
+    }
