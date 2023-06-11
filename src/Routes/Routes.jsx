@@ -9,6 +9,13 @@ import PopularClass from "../Pages/Home/PopularClass/PopularClass";
 import Instructors from "../Pages/Instructors/Instructors";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import ManageClasses from "../Pages/Dashboard/ManageClasses";
+import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import AddAClass from "../Pages/Dashboard/AddAClass";
+import MyCourses from "../Pages/Dashboard/MyCourses";
+import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses";
+import MyEnrolledClasses from "../Pages/Dashboard/MyEnrolledClasses";
+import MyPaymentHistory from "../Pages/Dashboard/MyPaymentHistory";
 
   export const router = createBrowserRouter([
     {
@@ -34,12 +41,42 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'instructors',
           element: <Instructors></Instructors>
-        },
-        {
-          path: 'dashboard',
-          element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
         }
       ]
     },
+    {
+      path: "dashboard",
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children: [
+        {
+          path: 'manageClasses',
+          element:<ManageClasses></ManageClasses>
+        },
+        {
+          path:'manageUsers',
+          element:<ManageUsers></ManageUsers>
+        },
+        {
+          path: 'addAClass',
+          element:<AddAClass></AddAClass>
+        },
+        {
+          path: 'myCourses',
+          element:<MyCourses></MyCourses>
+        },
+        {
+          path: 'mySelectedClasses',
+          element:<PrivateRoute> <MySelectedClasses></MySelectedClasses> </PrivateRoute>
+        },
+        {
+          path: 'myEnrolledClasses',
+          element:<PrivateRoute> <MyEnrolledClasses></MyEnrolledClasses> </PrivateRoute>
+        },
+        {
+          path: 'myPaymentHistory',
+          element:<PrivateRoute> <MyPaymentHistory></MyPaymentHistory> </PrivateRoute>
+        }
+    ]
+    }
    
   ]);
