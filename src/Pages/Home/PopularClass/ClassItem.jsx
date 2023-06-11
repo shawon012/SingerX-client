@@ -15,7 +15,7 @@ const ClassItem = ({ item }) => {
         console.log(item);
         if(user && user.email){
             const cartItem = {cartItemId: _id, name, instructorName, image, price, email: user.email}
-            fetch('http://localhost:5000/carts', {
+            fetch('https://fproserver.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
