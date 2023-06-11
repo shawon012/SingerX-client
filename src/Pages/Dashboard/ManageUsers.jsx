@@ -13,7 +13,7 @@ const ManageUsers = () => {
     })
 
     const handleMakeAdmin = user =>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://fproserver.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageUsers = () => {
     }
 
     const handleMakeInstructor = user =>{
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+        fetch(`https://fproserver.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -64,8 +64,8 @@ const ManageUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th>Admin</th>
+                            <th>Instructor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,7 +77,7 @@ const ManageUsers = () => {
                                 <td>{ user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button> 
                                     }</td>
-                                <td><button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-red-600  text-white"> <FaChalkboardTeacher></FaChalkboardTeacher> </button></td>
+                                <td>{user.role === 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-red-600  text-white"> <FaChalkboardTeacher></FaChalkboardTeacher> </button>}</td>
                             </tr>)
                         }
                         

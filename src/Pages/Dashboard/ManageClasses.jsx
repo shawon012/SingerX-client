@@ -14,7 +14,7 @@ const ManageClasses = () => {
     })
 
     const handleUpdateApproved = clas =>{
-        fetch(`http://localhost:5000/classes/approve/${clas._id}`, {
+        fetch(`https://fproserver.vercel.app/classes/approve/${clas._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -34,7 +34,7 @@ const ManageClasses = () => {
     }
 
     const handleUpdateDenied = clas =>{
-        fetch(`http://localhost:5000/classes/deny/${clas._id}`, {
+        fetch(`https://fproserver.vercel.app/classes/deny/${clas._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())

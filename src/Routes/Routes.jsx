@@ -16,6 +16,7 @@ import MyCourses from "../Pages/Dashboard/MyCourses";
 import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses";
 import MyEnrolledClasses from "../Pages/Dashboard/MyEnrolledClasses";
 import MyPaymentHistory from "../Pages/Dashboard/MyPaymentHistory";
+import Notfound from "../Pages/Notfound/Notfound";
 
   export const router = createBrowserRouter([
     {
@@ -77,6 +78,10 @@ import MyPaymentHistory from "../Pages/Dashboard/MyPaymentHistory";
           element:<PrivateRoute> <MyPaymentHistory></MyPaymentHistory> </PrivateRoute>
         }
     ]
+    },
+    {
+        path: '*',
+        element: <Notfound></Notfound>
     }
    
   ]);

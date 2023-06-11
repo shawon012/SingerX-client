@@ -7,7 +7,7 @@
         status:'Pending',
         availableSeats: 3,
         totalSeats: 5,
-        price: '$50',
+        price: 50,
         enrolledStudents: 2
     },
     {
@@ -18,7 +18,7 @@
         status:'Pending',
         availableSeats: 5,
         totalSeats: 5,
-        price: '$40',
+        price: 40,
         enrolledStudents: 0
     },
     {
@@ -29,7 +29,7 @@
         status:'Pending',
         availableSeats: 2,
         totalSeats: 5,
-        price: '$60',
+        price: 60,
         enrolledStudents: 3
     },
     {
@@ -40,7 +40,7 @@
         status:'Pending',
         availableSeats: 4,
         totalSeats: 5,
-        price: '$55',
+        price: 55,
         enrolledStudents: 1
     },
     {
@@ -51,7 +51,7 @@
         status:'Pending',
         availableSeats: 1,
         totalSeats: 5,
-        price: '$45',
+        price: 45,
         enrolledStudents: 4
     },
     {
@@ -62,7 +62,7 @@
         status:'Pending',
         availableSeats: 3,
         totalSeats: 5,
-        price: '$65',
+        price: 65,
         enrolledStudents: 2
     }
 ],

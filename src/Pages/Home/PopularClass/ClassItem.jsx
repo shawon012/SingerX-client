@@ -15,7 +15,7 @@ const ClassItem = ({ item }) => {
         console.log(item);
         if(user && user.email){
             const cartItem = {cartItemId: _id, name, instructorName, image, price, email: user.email}
-            fetch('http://localhost:5000/carts', {
+            fetch('https://fproserver.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -52,23 +52,7 @@ const ClassItem = ({ item }) => {
         }
     }
 
-    // const handleSelect = () => {
-    //     if (!user) {
-    //         setError('Please log in to select the course.');
-    //         return;
-    //     }
-
-    //     if (availableSeats === 0) {
-    //         setError('This course is currently full.');
-    //         return;
-    //     }
-
-    //     if (user.role === 'admin' || user.role === 'instructor') {
-    //         setError('Only students can select the course.');
-    //         return;
-    //     }
-
-    // };
+   
     return (
         <div className={`mx-auto ${availableSeats === 0 ? 'bg-red-500' : 'bg-base-100'
             }`}>

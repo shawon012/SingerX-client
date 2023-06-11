@@ -9,10 +9,11 @@ const Dashboard = () => {
     const [carts] = useCart();
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
-    const isAdmin = true;
+    // const isAdmin = true;
     // const isInstructor = true;
-    // const [isAdmin] = useAdmin();
+    const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
+    console.log(isInstructor);
 
     return (
         <div>
