@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers, FaChalkboardTeacher, FaPeopleArrows, FaMusic } from 'react-icons/fa';
 import useCart from "../../Hooks/useCart";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
@@ -9,9 +9,9 @@ const Dashboard = () => {
     const [carts] = useCart();
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
-    // const isAdmin = true;
+    const isAdmin = true;
     // const isInstructor = true;
-    const [isAdmin] = useAdmin();
+    // const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
 
     return (
@@ -29,7 +29,7 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                 <li><NavLink to="/dashboard/manageClasses"><FaHome></FaHome> Manage Classes</NavLink></li>
-                                <li><NavLink to="/dashboard/manageUsers"> <FaUtensils></FaUtensils> Manage Users</NavLink></li>
+                                <li><NavLink to="/dashboard/manageUsers"> <FaPeopleArrows></FaPeopleArrows>  Manage Users</NavLink></li>
 
                             </> : isInstructor ?
                                 <>
@@ -62,8 +62,8 @@ const Dashboard = () => {
 
                         <div className="divider"></div>
                         <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                        <li><NavLink to="/classes"> Music Classes</NavLink></li>
-                        <li><NavLink to="/instructors">Instructors</NavLink></li>
+                        <li><NavLink to="/classes"> <FaMusic></FaMusic> Music Classes</NavLink></li>
+                        <li><NavLink to="/instructors"> <FaChalkboardTeacher></FaChalkboardTeacher> Instructors</NavLink></li>
                     </ul>
 
                 </div>
