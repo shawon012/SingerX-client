@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [error, setError] = useState(null);
@@ -11,6 +12,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+    console.log(from);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -22,14 +24,13 @@ const Login = () => {
             return;
         }
 
+
         signIn(email, password)
             .then(result => {
                 // const user = result.user;
                 console.log(result);
-                navigate(from, { replace: true })
-
-
-
+                navigate(from, { replace: true });
+                
             })
             .catch(error => setError(error));
 

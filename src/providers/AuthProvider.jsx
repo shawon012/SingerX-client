@@ -22,7 +22,14 @@ const AuthProvider = ({ children }) => {
                 const user = userCredential.user;
                 updateProfile(user, { displayName: displayName, photoURL: photoURL })
                     .then(() => {
-                        // Profile data updated successfully
+                        const saveUser = { name: displayName, email: email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
                     })
                     .catch((error) => {
                         console.log(error.message);
@@ -31,6 +38,7 @@ const AuthProvider = ({ children }) => {
             .catch((error) => {
                 console.log(error.message);
             });
+        
     }
 
     const signIn = (email, password) => {
@@ -54,7 +62,7 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser);
             // get and set token
             if (currentUser) {
-                axios.post('https://fproserver.vercel.app/jwt', { email: currentUser.email })
+                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
                     .then(data => {
                         console.log(data.data.token)
                         localStorage.setItem('access-token', data.data.token)
@@ -62,6 +70,7 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
+                setLoading(false);
                 localStorage.removeItem('access-token')
             }
 
